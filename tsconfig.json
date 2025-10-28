@@ -5,6 +5,15 @@
   "references": [
     {
       "path": "./apps/dyn"
+    },
+    {
+      "path": "./apps/shell"
+    },
+    {
+      "path": "./apps/remote1"
+    },
+    {
+      "path": "./apps/remote2"
     }
   ]
 }

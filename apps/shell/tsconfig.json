@@ -1,0 +1,19 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "../remote1"
+    },
+    {
+      "path": "../remote2"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}
