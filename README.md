@@ -1,5 +1,73 @@
-## Running
-Run `npx nx serve remote1`
+## Running the Applications
+
+### Quick Start
+
+To run all applications simultaneously:
+
+```bash
+npx nx run-many -t serve -p shell remote1 remote2
+```
+
+This will start:
+- **shell** on http://localhost:4200
+- **remote1** on http://localhost:4201
+- **remote2** on http://localhost:4202
+
+### Development Workflows
+
+The `nx run-many` command with project filters allows you to run only the applications you need, saving system resources and reducing startup time.
+
+#### Full Stack Development
+
+When working across the entire application or testing end-to-end functionality:
+
+```bash
+npx nx run-many -t serve -p shell remote1 remote2
+```
+
+**Use this when:** You need to test features that span multiple remotes or verify the complete user experience.
+
+#### Shell Development
+
+When working on the host application (routing, layouts, shared components):
+
+```bash
+npx nx serve shell
+```
+
+**Use this when:** You're developing shell-specific features and don't need the remotes running. The shell will show loading states when navigating to remote routes.
+
+#### Remote1 Feature Development
+
+When building or debugging features in remote1:
+
+```bash
+npx nx run-many -t serve -p shell remote1
+```
+
+**Use this when:** You're working on remote1 and need to test it within the shell context. This saves resources by not running remote2.
+
+#### Remote2 Feature Development
+
+When building or debugging features in remote2:
+
+```bash
+npx nx run-many -t serve -p shell remote2
+```
+
+**Use this when:** You're working on remote2 and need to test it within the shell context. This saves resources by not running remote1.
+
+### Individual Project Commands
+
+You can also serve projects individually:
+
+| Command | Port | Description |
+|---------|------|-------------|
+| `npx nx serve shell` | 4200 | Host application |
+| `npx nx serve remote1` | 4201 | Remote1 application |
+| `npx nx serve remote2` | 4202 | Remote2 application |
+
+**Note:** Due to the dynamic lazy loading pattern used in this workspace, remotes are only loaded when you navigate to their respective routes, allowing for flexible development workflows.
 
 ## Module Federation with Dynamic Remote Loading
 
