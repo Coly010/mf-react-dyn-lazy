@@ -1,4 +1,2 @@
 {
-  "remote1": "http://localhost:4201/mf-manifest.json",
-  "remote2": "http://localhost:4202/mf-manifest.json"
 }

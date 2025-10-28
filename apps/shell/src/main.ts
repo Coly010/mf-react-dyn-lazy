@@ -1,11 +1,14 @@
 
-import {REMOTES_CONFIG} from './app/config/config';
+import { REMOTES_CONFIG } from './app/config/config';
 
-fetch('/assets/module-federation.manifest.json')
-  .then((res) => res.json())
-  .then((remotes: Record<string, string>) =>
-    Object.entries(remotes).map(([name, entry]) => {
-      REMOTES_CONFIG[name] = entry;
-    })
-  )
-  .then(() => import('./bootstrap').catch((err) => console.error(err)));
+
+const REMOTES = {
+  "remote1": "http://localhost:4201/mf-manifest.json",
+  "remote2": "http://localhost:4202/mf-manifest.json"
+}
+
+Object.entries(REMOTES).map(([name, entry]) => {
+  REMOTES_CONFIG[name] = entry;
+});
+    
+import('./bootstrap').catch((err) => console.error(err));
